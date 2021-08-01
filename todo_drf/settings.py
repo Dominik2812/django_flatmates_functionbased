@@ -79,13 +79,13 @@ WSGI_APPLICATION = 'todo_drf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if os.environ.get('POSTGRESS')=='1':
+if os.environ.get('POSTGRESS'):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": os.environ.get('DJANGO_DB_NAME'),
-            'USER': os.environ.get('DJANGO_DB_USER'),
-            'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD'),
+            "NAME": os.environ.get('DB_NAME'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
             'HOST': os.environ.get('DJANGO_DB_HOST', 'localhost'),
             'PORT': ''
         }
