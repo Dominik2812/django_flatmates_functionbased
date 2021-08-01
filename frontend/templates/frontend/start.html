@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flatmates</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static '/css/style.css' %}" >
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+	<!-- <style type="text/css">
+		
+
+	</style> -->
+
+</head>
+<body>
+	<!-- <div id=global> -->
+		<h2> Hello {{ user }}</h2>
+			<a id="logout" href="{{ 'accounts/logout' }}">logout</a>
+			<input type="hidden" name="{{ user }}" id='user'>
+			<input type="hidden" name="{{ user.id }}" id='userId'>
+			<button id="myArticles" onClick="goToMyArticles()"> I bought recently </button>
+			<button id="groceryList"onClick="goToGroceryList()"> Grocery List </button>
+			<button id="groceryList"onClick="goToReservoirList()"> Article Reservoir </button>
+			<div class="col wrapp" id="desktop">
+				{% include 'frontend/task_weNeed.html'%}
+				{% include 'frontend/weNeed.html'%}
+				{% include 'frontend/Ibought.html'%}
+			</div>
+
+	<script>
+		function goToMyArticles(){
+			var task=document.querySelector('[id~=task-container]');
+			var bought=document.querySelector('[id~=bought-container]');
+			var need=document.querySelector('[id~=weNeed-container]');
+			bought.id='bought-container';
+			task.id='task-container';
+			need.id='weNeed-container';
+			task.id = task.id+' disappear';
+			need.id = need.id+' disappear'
+		}
+		function goToGroceryList(){
+			var task=document.querySelector('[id~=task-container]');
+			var bought=document.querySelector('[id~=bought-container]');
+			var need=document.querySelector('[id~=weNeed-container]');
+			bought.id='bought-container';
+			task.id='task-container';
+			need.id='weNeed-container';
+			task.id = task.id+' disappear';
+			bought.id = bought.id+' disappear'
+		}
+
+		function goToReservoirList(){
+			var task=document.querySelector('[id~=task-container]');
+			var bought=document.querySelector('[id~=bought-container]');
+			var need=document.querySelector('[id~=weNeed-container]');
+			bought.id='bought-container';
+			task.id='task-container';
+			need.id='weNeed-container';
+			need.id = need.id+' disappear';
+			bought.id = bought.id+' disappear'
+		}
+	</script>
+	{% load static %}
+	<script type="text/javascript" src="{% static '/js/iBought.js' %}"></script>
+	<script type="text/javascript" src="{% static '/js/weNeed.js' %}"></script>
+	<!-- <script type="text/javascript" src="{% static '/js/history.js' %}"></script> -->
+	<script type="text/javascript" src="{% static '/js/task.js' %}"></script>
+
+
+	
+
+</body>
+</html>
